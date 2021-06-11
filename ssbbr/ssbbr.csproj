@@ -1,0 +1,127 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UserSecretsId>aspnet-ssbbr-33D3D79E-5079-482D-B9BE-8991F653DB7C</UserSecretsId>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="MD.PersianDateTime" Version="3.8.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.7.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="Obfuscar" Version="2.2.28">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="SendGrid" Version="9.12.0" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\illegals\10066\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\10068\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\10069\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\10070\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\10071\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\10072\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\10073\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\10074\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\10075\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\10076\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\10077\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\10080\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\10084\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\1043\" />
+    <Folder Include="wwwroot\images\illegals\1061\" />
+    <Folder Include="wwwroot\images\illegals\1095\" />
+    <Folder Include="wwwroot\images\illegals\1114\" />
+    <Folder Include="wwwroot\images\illegals\1138\" />
+    <Folder Include="wwwroot\images\illegals\1146\" />
+    <Folder Include="wwwroot\images\illegals\1164\" />
+    <Folder Include="wwwroot\images\illegals\1192\" />
+    <Folder Include="wwwroot\images\illegals\1237\" />
+    <Folder Include="wwwroot\images\illegals\1279\" />
+    <Folder Include="wwwroot\images\illegals\1311\" />
+    <Folder Include="wwwroot\images\illegals\1330\" />
+    <Folder Include="wwwroot\images\illegals\1335\" />
+    <Folder Include="wwwroot\images\illegals\1357\" />
+    <Folder Include="wwwroot\images\illegals\1367\" />
+    <Folder Include="wwwroot\images\illegals\1405\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\209\" />
+    <Folder Include="wwwroot\images\illegals\22\" />
+    <Folder Include="wwwroot\images\illegals\277\" />
+    <Folder Include="wwwroot\images\illegals\299\" />
+    <Folder Include="wwwroot\images\illegals\332\" />
+    <Folder Include="wwwroot\images\illegals\36\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\37\" />
+    <Folder Include="wwwroot\images\illegals\4103\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\4114\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\436\" />
+    <Folder Include="wwwroot\images\illegals\4446\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\444\" />
+    <Folder Include="wwwroot\images\illegals\5236\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\528\" />
+    <Folder Include="wwwroot\images\illegals\5445\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\5790\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\5984\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\612\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\6382\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\65\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\6851\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\7367\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\762\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\8268\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\855\" />
+    <Folder Include="wwwroot\images\illegals\885\" />
+    <Folder Include="wwwroot\images\illegals\8\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\9294\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\9304\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\9324\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\9334\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\9376\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\9408\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\9468\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\9481\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\9569\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\9630\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\9635\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\970\" />
+    <Folder Include="wwwroot\images\illegals\9721\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\9735\thumbs\" />
+    <Folder Include="wwwroot\images\illegals\9931\thumbs\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="wwwroot\images\illegals\898\aoa_eugensystems_com_2020_persian_war.pdf" />
+  </ItemGroup>
+
+
+  <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
+    <Exec WorkingDirectory="$(MonoAndroidIntermediateAssetsDir)" Command="$(Obfuscar) $(ProjectDir)obfuscar.xml" />
+    <Copy SourceFiles="$(TargetDir)MyAssembly.dll" DestinationFolder="$(MonoAndroidIntermediateAssetsDir)" />
+  </Target>
+
+</Project>

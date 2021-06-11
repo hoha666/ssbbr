@@ -1,0 +1,120 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "ستاد ساماندهی بازار بازی های رایانه ای";
+}
+@section Styles{
+    <style>
+        .serachBox{
+            box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+        }
+        .keywordBox {
+            min-width: 400px;
+            border-radius: 40px;
+        }
+
+        .form-control-borderless {
+            border: none;
+        }
+
+            .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+                border: none;
+                outline: none;
+                box-shadow: none;
+            }
+    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <center><img src="~/images/2.png" /></center>
+            <br />
+            <form class="card card-sm serachBox" asp-controller="Home" asp-action="Search" method="post">
+
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <i class="fas fa-search h4 text-body"></i>
+                    </div>
+                    <!--end of col-->
+                    <div class="col">
+                        <input asp-for="keyword" class="form-control form-control-lg form-control-borderless" type="search" placeholder="عنوان بازی را وارد کنید...">
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <button class="btn btn-lg btn-success" type="submit">جستجو</button>
+                    </div>
+                    <!--end of col-->
+                </div>
+            </form>
+        </div>
+        <!--end of col-->
+    </div>
+    <br />
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col col-lg-8">
+            @{
+                if (Model.searchStatus != null)
+                {
+                    if (Model.searchStatus == "Ok")
+                    {
+                        <table class="table table-dark">
+
+                            <thead>
+                                <tr>
+                                    <td>ردیف</td>
+                                    <td>نام بازی</td>
+                                    <td>پلتفرم بازی</td>
+                                    @*<td>وضعیت</td>
+                                    <td>ناشر مجاز</td>
+                                    <td>رده بندی سنی</td>*@
+                                    <td>تاریخ ثبت</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (searchResult a in Model.Results)
+                                {
+                                    <tr>
+                                        <td>@a.rowNumber.ToString()</td>
+                                        <td>@a.gameName</td>
+                                        <td>@a.platform</td>
+                                        @*<td>@a.status</td>
+                                        <td>@a.publisher</td>
+                                        <td>@a.age</td>*@
+                                        <td>@a.date</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else if (Model.searchStatus == "Not Found")
+                    {
+                        <div class="alert alert-danger">
+                            <strong>نتیجه ای برای جستجوی مد نظر پیدا نشد</strong> <br />
+                            <p>این نتیجه می تواند به این معنی باشد که این بازی بررسی نشده یا پروانه انتشار برای آن صادر نشده است.</p>
+                            <p>برابر بند ز1 فهرست مصادیق محتوای مجرمانه <a target="_blank" href="https://internet.ir/crime_index.html">(موضوع ماده 21 قانون جرایم رایانه ای)</a> بازی فاقد پروانه انتشار، غیر مجاز تلقی می شود.</p>
+                        </div>
+
+                    }
+                    else if (Model.searchStatus == "Under 3 Words")
+                    {
+                        <div class="alert alert-warning">
+                            <strong>بدون نتیجه</strong> جهت جستجو در پایگاه داده‌ها کلمه ای با حداقل 4 حرف وارد نمایید.
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger">
+                            <strong>بدون نتیجه</strong> خطا در ارتباط با پایگاه داده‌ها، مجددا تلاش نمایید.
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+
+    </script>
+}

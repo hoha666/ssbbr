@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap-rtl/css/rtl/bootstrap.min.css" />
+    <link href="~/css/Dashboard.css" rel="stylesheet" />
+    @RenderSection("Styles", required: false)
+</head>
+<body dir="rtl">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Dashboard" asp-action="Index">ستاد ساماندهی بازار بازی های رایانه ای</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @if (User.IsInRole("ContentManager") || User.IsInRole("Government"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Games" asp-action="Index">مدیریت بازی ها</a>
+                                </li>
+                            }
+                            @if (User.IsInRole("ContentManager"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="\Identity/account/register">افزودن کاربر</a>
+                                </li>
+                            }                            
+                            @if (User.IsInRole("ContentManager"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="RegisterForms" asp-action="Index">فعالسازی کاربران</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 1398 - معاونت نظارت وارزشیابی بنیاد ملی بازی های رایانه ای - <a asp-area="" asp-controller="Home" asp-action="Privacy">بیانیه حق مالکیت</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap-rtl/js/bootstrap.min.js"></script>
+    <script src="~/lib/popper.js/dist/umd/popper.min.js"></script>
+    <script src="~/js/Dashboard.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

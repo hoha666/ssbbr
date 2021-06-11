@@ -1,0 +1,156 @@
+﻿@model GamesIndexViewModel
+
+@{
+    ViewData["Title"] = "مدیریت بازی ها";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+
+}
+
+<h1>مدیریت بازی ها</h1>
+@if (this.User.IsInRole("ContentManager"))
+{
+    <p>
+        <a asp-action="Create">درج عنوان جدید</a>
+    </p>
+}
+
+<form class="card card-sm" method="post" style="background-color:white ;">
+    @*#a598ee*@
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <i class="fas fa-search h4 text-body"></i>
+                    </div>
+                    <!--end of col-->
+                    <div class="col">
+                        <input asp-for="keyword" class="form-control form-control-lg form-control-borderless" type="search" placeholder="عنوان بازی را وارد کنید...">
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <button class="btn btn-lg btn-success" type="submit" asp-controller="Games" asp-action="Index">جستجو</button>
+                    </div>
+                    <!--end of col-->
+                </div>
+
+            </div>
+            <!--end of col-->
+        </div>
+        <hr />
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col col-lg-8">
+                <div class="row justify-content-center">
+                    <div class="col-3 col-md-3 col col-lg-3">
+                        <p>
+                            صفحه : <input asp-for="PageNumber" type="hidden" value="@Model.PageNumber.ToString()">
+                            <select id="pageNumberSelector">
+                                @for (int i = 1; i <= @Model.pageCount; i++)
+                                {
+                                    if (i == @Model.PageNumber)
+                                    {
+                                        <option vlaue="@i.ToString()" selected="selected">@i.ToString()</option>
+                                    }
+                                    else
+                                    {
+                                        <option vlaue="@i.ToString()">@i.ToString()</option>
+                                    }
+                                }
+                            </select>
+                        </p>
+                    </div>
+                    <div class="col-3 col-md-3 col col-lg-3">
+                        <p>تعداد صفحات : @Model.pageCount.ToString()</p>
+                    </div>
+                    <div class="col-3 col-md-3 col col-lg-3">
+                        @if (Model.PageNumber > 1)
+                        {
+                            <input type="submit" asp-controller="Games" asp-action="PreviousPage" value="صفحه قبلی" />
+                        }
+                    </div>
+                    <div class="col-3 col-md-3 col col-lg-3">
+                        @if (Model.PageNumber <= (Model.pageCount - 1))
+                        {
+                            <input id="nextPagin" type="submit" asp-controller="Games" asp-action="NextPage" value="صفحه بعدی" />
+                        }
+                    </div>
+                </div>
+
+                @if (Model.searchStatus == "Ok" || Model.PrimaryLoad)
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    عنوان بازی
+                                </th>
+                                <th>
+                                    پلتفرم بازی
+                                </th>
+                                @*<th>
+                                        نوع ممنوعیت
+                                    </th>*@
+                                <th>
+                                    عملیات
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.DataStash)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.platform)
+                                    </td>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.genre1)
+                                        </td>*@
+                                    <td>
+                                        @*<a asp-action="Edit" asp-route-id="@item.id">ویرایش</a> |*@
+                                        <a asp-action="Details" target="_blank" asp-route-id="@item.id" asp-all-route-data="@(new Dictionary<string, string> { { "pagenumber", Model.PageNumber.ToString() },{"id",item.id.ToString() } })">جزئیات</a>
+                                        @* <a asp-action="Delete" asp-route-id="@item.id">حذف</a>*@
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else if (Model.searchStatus == "Not Found")
+                {
+                    <div class="alert alert-danger">
+                        <strong>بدون نتیجه</strong> عنوان مورد نظر شما در پایگاه داده‌ها موجود نمی باشد.
+                    </div>
+
+                }
+                else if (Model.searchStatus == "Under 3 Words")
+                {
+                    <div class="alert alert-warning">
+                        <strong>بدون نتیجه</strong> جهت جستجو در پایگاه داده‌ها کلمه ای با حداقل 3 حرف وارد نمایید.
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-danger">
+                        <strong>بدون نتیجه</strong> خطا در ارتباط با پایگاه داده‌ها، مجددا تلاش نمایید.
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</form>
+@section scripts {
+    <script type="text/javascript">
+        $('#pageNumberSelector').change(function () {
+            $(this).find(":selected").each(function () {
+                document.getElementById('PageNumber').value = $(this).val() - 1 ;                
+                $('#nextPagin').click();
+            });
+        });
+    </script>
+}

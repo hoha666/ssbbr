@@ -1,0 +1,375 @@
+﻿@model ssbbr.Models.AddGameViewModel
+
+@{
+    ViewData["Title"] = "افزودن بازی";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h1>درج عنوان بازی</h1>
+
+<h4>لیست موارد محتوایی</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div class="text-danger"></div>
+            @*<div class="form-group">
+                    <label asp-for="code" class="control-label"></label>
+                    <input asp-for="code" class="form-control" />
+                    <span asp-validation-for="code" class="text-danger"></span>
+                </div>*@
+        <div class="form-group">
+            <label asp-for="name" class="control-label"></label>
+            <input asp-for="name" class="form-control" />
+            <span asp-validation-for="name" class="text-danger"></span>
+
+            <label asp-for="nickName" class="control-label"></label>
+            <input asp-for="nickName" class="form-control" />
+            <span asp-validation-for="nickName" class="text-danger"></span>
+
+            <label for="inputType">تعیین رده بندی سنی در صورتی که مجاز ویرایشی است</label>
+            <select asp-for="age" id="inputType" runat="server" class="form-control">
+                <option value="+3">+3</option>
+                <option value="+7">+7</option>
+                <option value="+12">+12</option>
+                <option value="+15">+15</option>
+                <option value="+18">+18</option>
+            </select>
+
+            <label asp-for="publisherName" class="control-label"></label>
+            <input asp-for="publisherName" class="form-control" />
+            <span asp-validation-for="publisherName" class="text-danger"></span>
+        </div>
+            <div class="form-group">
+                <label>انتخاب پلتفرم</label>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="PC" type="checkbox" id="ch1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        PC
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="PS1" type="checkbox" id="ch2" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        PS1
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="PS2" type="checkbox" id="ch3" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        PS2
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="PS3" type="checkbox" id="ch4" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        PS3
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="PS4" type="checkbox" id="ch5" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        PS4
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Xbox360" type="checkbox" id="ch6" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Xbox 360
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="XboxOne" type="checkbox" id="ch7" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Xbox One
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Android" type="checkbox" id="ch8" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Andoird
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="iOS" type="checkbox" id="ch9" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        iOS
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Wii" type="checkbox" id="ch10" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Wii
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="NintendoSwitch" type="checkbox" id="ch12" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Nintendo Switch
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="MAC" type="checkbox" id="ch11" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        MAC
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputType">نوع ممنوعیت</label>
+                <select asp-for="typeOfFiltering" id="inputType" runat="server" class="form-control">
+                    <option value="غیر‌مجاز">غیر مجاز</option>
+                    <option value="مجاز مشروط">مجاز مشروط</option>
+                </select>
+            </div>
+            <br />
+            <hr />
+            <div class="form-group">
+                <label>ناهنجاری اجتماعی</label>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="na_music" type="checkbox" id="mh1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        موسیقی ناهنجار / موسیقی دارای خواننده زن
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="na_badLanguage" type="checkbox" id="mh2" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        گفتار ناشایست شدید به دفعات
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="na_dance" type="checkbox" id="mh3" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        رقص
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="na_badBehave" type="checkbox" id="mh4" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        رفتارهای غیر مودبانه
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="na_publicDamage" type="checkbox" id="mh4a" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        ترویج مردم آزاری
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>قمار</label>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="bet_inPlace" type="checkbox" id="mh5" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        وجود ابزار قمار در مکان های مرتبط با قمار
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="bet_doneByYou" type="checkbox" id="mh6" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        انجام قمار واقعی / غیر واقعی، توسط شخصیت اصلی در بازی
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>مشروبات الکلی</label>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="alch_use" type="checkbox" id="mh7" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        استفاده / اثر استفاده از مشروبات الکلی
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="alch_show" type="checkbox" id="mh8" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        نمایش مکان های مرتبط با مشروبات الکلی (Bar, Casino)
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>محرک های جنسی</label>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="erotic_kiss" type="checkbox" id="mh9" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        بوسیدن
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="erotic_symbol" type="checkbox" id="mh10" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        کلام / نوشته / نشانه مربوط به محرک های جنسی
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="erotic_porn" type="checkbox" id="mh11" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        رابطه جنسی
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="erotic_content" type="checkbox" id="mh11b" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        مفهوم رابطه جنسی
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="erotic_place" type="checkbox" id="mh12" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        مکان های مربوط به رابطه جنسی یا تفریحات جنسی
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="erotic_nude" type="checkbox" id="mh13" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        عریانی
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="erotic_halfNude" type="checkbox" id="mh13b" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        نیمه عریانی
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="mh14" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        اغواگری / لمس جنسی
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="erotic_problems" type="checkbox" id="mh15" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        انحرافات جنسی
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="erotic_dance" type="checkbox" id="mh16" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        رقص جنسی
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>خشونت</label>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="violence_show" type="checkbox" id="mh17" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        نمایش صحنه های قساوت آمیز به صورت مکرر  یا خشونت شدید در بازی
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="violence_extreme" type="checkbox" id="mh18" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        خشونت شدید همراه با ترس و ایجاد استرس و اضطراب زیاد در بازی
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>مواد مخدر</label>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="drugs" type="checkbox" id="mh19" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        استفاده / اثر استفاده از مواد مخدر )شامل مصرف، کسب درآمد، ترویج استفاده، کم رنگ کردن تابوی مواد
+                        مخدر(
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>نقض ارزش های ایرانی - اسلامی</label>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Islam_places" type="checkbox" id="mh20" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        هتک حرمت مقدسات
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Islam_racist" type="checkbox" id="mh21" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        اهانت و تبعیض علیه مسلمانان
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Islam_racistIranian" type="checkbox" id="mh22" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        اهانت و تبعیض علیه ایرانیان
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Islam_blasphemy" type="checkbox" id="mh23" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        ترویج کفر و شرک
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Islam_attitude" type="checkbox" id="mh24" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        ترویج رذایل اخلاقی
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Islam_tatto" type="checkbox" id="mh24a" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        خالکوبی کردن کاراکتر ها توسط بازیکن
+                    </label>
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    <label>متفرقه</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="mh25" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            بازی دارای محتوای جادو گری است
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="mh26" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            خالکوبی کردن کاراکترها توسط بازیکن
+                        </label>
+                    </div>
+                </div>*@
+
+            <br />
+            <hr />
+
+            <div class="form-group">
+                <label for="">بارگذاری عکس ها / فیلم ها (تنها فرمت JPG قابل بارگذاری می باشد.)</label>
+                <input asp-for="ImageUpload1" type="file" accept=".jpg" />
+            </div>
+            <div class="form-group">
+                <input asp-for="ImageUpload2" type="file" accept=".jpg" />
+            </div>
+            <div class="form-group">
+                <input asp-for="ImageUpload3" type="file" accept=".jpg" />
+            </div>
+            <div class="form-group">
+                <input asp-for="ImageUpload4" type="file" accept=".jpg" />
+            </div>
+            <div class="form-group">
+                <input asp-for="ImageUpload5" type="file" accept=".jpg" />
+            </div>
+            <div class="form-group">
+                <input asp-for="ImageUpload6" type="file" accept=".jpg" />
+            </div>
+            <br />
+            <hr />
+
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">بازگشت به لیست بازی ها</a>
+</div>
+

@@ -1,0 +1,14 @@
+﻿@model DashboardViewModel
+@{
+    ViewData["Title"] = "داشبورد";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+@*<h4>داشبورد سامانه وب افزار نسخه 3.04</h4>*@
+
+
+<br />
+<hr />
+<br />
+<p>تعداد بازی های ثبت شده در پایگاه داده ها : @Model.gameCount</p>
+<p>تعداد کاربران ثبت شده در پایگاه داده ها : @Model.userCount</p>

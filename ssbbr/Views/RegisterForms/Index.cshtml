@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ssbbr.Data.RegisterForm>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h1>لیست ثبت نامی ها</h1>
+
+<p>
+    @*<a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                نام
+            </th>
+            <th>
+                نام خانوادگی
+            </th>
+            <th>
+                ایمیل
+            </th>
+            <th>
+                استان
+            </th>
+            <th>
+                شهر
+            </th>
+            <th>
+                تلفن ثابت
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Province)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.id">Edit</a>*@ |
+                <a asp-action="Details" asp-route-id="@item.id">بیشتر</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">فعالسازی و حذف از لیست</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
