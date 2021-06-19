@@ -27,7 +27,7 @@ namespace ssbbr.Controllers
 
         public IActionResult Index()
         {
-            if (DateTime.Now < new DateTime(2021, 06, 30))
+            if (DateTime.Now < new DateTime(2031, 06, 30))
             {
                 HomeViewModel model = new HomeViewModel();
                 return View(model);
