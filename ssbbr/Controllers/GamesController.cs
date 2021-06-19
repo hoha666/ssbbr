@@ -32,7 +32,7 @@ namespace ssbbr.Controllers
         // GET: Games
         public async Task<IActionResult> Index(int pagenumber = 1)
         {
-            if (DateTime.Now < new DateTime(2021, 06, 30))
+            if (DateTime.Now < new DateTime(2031, 06, 30))
             {
                 GamesIndexViewModel a = new GamesIndexViewModel();
                 IEnumerable<Games> query = from m in _context.Games orderby m.id descending select m;
